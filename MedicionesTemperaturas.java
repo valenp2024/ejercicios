@@ -25,6 +25,7 @@ public class MedicionesTemperaturas
      * Agrega una nueva medicion de temperatura
      */
     public void agregarMedicion(float nuevaTemperatura) {
+        assert nuevaTemperatura >= -273.15;//ejercicio 8
         mediciones.add(nuevaTemperatura);
     }
     
@@ -64,5 +65,23 @@ public class MedicionesTemperaturas
             }
         }
         return negativas;
+    }
+    public int cantTemperaturasExtremas (){ //ejercicio 7
+        int extremas = 0;
+        for (float temp:mediciones){
+            if (temp > 35 || temp < -15){
+                extremas ++;
+            }
+        }
+        return extremas;
+    }
+    public int consecutivasIguales(){//ejerecicio 9
+        int cantIguales = 0;
+        for (int i = 0; i < mediciones.size ()-1; i ++){
+            if (mediciones.get (i).equals(mediciones.get(i++))){
+                cantIguales ++;
+            }
+        }
+        return cantIguales;
     }
 }
